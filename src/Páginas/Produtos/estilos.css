@@ -1,0 +1,15 @@
+.card {
+    width: 18rem;
+    margin: 0 50px;
+}
+
+.btn-primary {
+    background-color:#F6AB6C;
+    border: #F6AB6C;
+}
+
+.btn-primary:hover {
+    background-color:transparent;
+    border: 1px solid #F6AB6C;
+    color:#F6AB6C ;
+}

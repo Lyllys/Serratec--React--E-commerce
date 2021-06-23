@@ -1,0 +1,13 @@
+.logo {
+    width : 100px;
+    height: 100px;
+}
+
+.logo:hover {
+    width : 110px;
+    height: 110px;
+}
+
+.navbar-logo{
+    height: 125px;
+}
