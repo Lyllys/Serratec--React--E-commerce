@@ -12,6 +12,7 @@
 
 .img-fluid {
     height: 417px;
+   
 }
 
 
@@ -19,6 +20,7 @@
 @media only screen and (max-width: 768px){
     .img-fluid{
        height: auto;
+       margin-top: 15px;
     }
 
     .texto-banner  {

@@ -1,19 +1,31 @@
-import './estilos.css'
+import { useEffect, useState } from 'react';
+import http from '../../http';
+import Card from '../../Componentes/Card/Card';
 
 const Produtos = () => {
+
+  const [produtos, setProdutos] = useState([]);
+
+  useEffect(() => {
+    http.get('produto/todos')
+    .then (resposta => {
+      setProdutos(resposta.data)
+    }).catch(erro =>{
+      console.log(erro);
+    })
+  } , [])
+
     return (
-        <div class="row row-cols-1 row-cols-md-3 g-4">
-        <div class="col">
-          <div class="card h-100">
-            <img src="..." class="card-img-top" alt="..." />
-            <div class="card-body">
-              <h5 class="card-title">Card title</h5>
-              <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-              <a href="#" class="btn btn-primary">Ver detalhes</a>  
-            </div>
-          </div>
-        </div>
-      </div>
+       <>
+       {produtos.map((item) => <Card 
+        key={item.id}
+        id={item.id}
+        codigo={item.codigo}
+        nome={item.nome}
+        preco={item.preco}
+        descricao={item.descricao}  
+       /> )}
+       </>
     )
 }
 

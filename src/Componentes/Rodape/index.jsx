@@ -1,4 +1,4 @@
-import { FaHeart, FaPinterest,  } from "react-icons/fa";
+import { FaHeart } from "react-icons/fa";
 import { FiTwitter } from "react-icons/fi";
 import { FiFacebook } from "react-icons/fi";
 import { RiGithubLine} from "react-icons/ri";
@@ -13,19 +13,19 @@ const Rodape = () => {
    
     <footer className="footer">
     <div className="footersocial">
-      <a href="#">
+      <a href="/#">
         <FaInstagram size="40"  color="#000"/>
       </a>
-      <a href="#">
+      <a href="/#">
         <FiFacebook size="40"  color="#000"/>
       </a>
-      <a target="_blank" href="https://github.com/Lyllys/Serratec--React--E-commerce">
+      <a target="_blank" rel="noreferrer" href="https://github.com/Lyllys/Serratec--React--E-commerce">
         <RiGithubLine size="40"  color="#000"/>
       </a>
-      <a href="#">
+      <a href="/#">
         <FiTwitter size="40"  color="#000"/>
       </a>
-      <a href="#">
+      <a href="/#">
         <ImPinterest2 size="40"  color="#000"/>
       </a>
     </div>
