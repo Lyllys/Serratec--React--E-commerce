@@ -55,7 +55,8 @@ const Cadastro = () => {
         numeroResidencia: numero,
         bairro: bairro,
         cidade: cidade,
-        uf: uf
+        complemento: complemento, 
+        estado: uf
       }
     }
 

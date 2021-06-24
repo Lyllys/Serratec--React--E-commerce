@@ -1,45 +1,69 @@
-// import './estilos.css'
-// import { useState } from 'react'
-// import http from '../../http'
+import { useState, useEffect } from 'react';
+import { useParams } from 'react-router-dom';
+import http from '../../http';
+import './estilos.css'
+import Tabela from '../../Componentes/Tabela/Tabela';
 
-// const Carrinho = () => {
+const Carrinho = () => {
 
-//     const [carrinhos, setCarrinhos] = useState([]);
-//     const adicionarProduto = (produtoAdiciona) => {
+    const { nome, quantidade } = useParams();
 
-//         http.post(`pedido`, produtoAdiciona)
-//             .then(resposta => {
-//                 const novoCarrinho = resposta.data;
-//                 setCarrinhos([
-//                     novoCarrinho,
-//                     ...carrinhos
-//                 ])
-//             }).catch(erro => {
-//                 console.log(erro);
-//             })
-//     }
+    // const [itensPedido, setItensPedido] = useState([{
+    //     produto: {
+    //         id: 0,
+    //         nome: '',
+    //         descricao: '',
+    //         preco: 0,
+    //         categoria: {
+    //             codigo: '',
+    //             dataCadastro: '',
+    //             descricao: '',
+    //             id: 0,
+    //             imagemBase64: null,
+    //             nome: '',
+    //             preco: 0,
+    //             quantidadeEstoque: 0
+    //         }
+    //     }
+    // }]);
 
-//     return (<div>
-//         <h1 className="titulo-carrinho">Carrinho</h1>
-//         <table className="table table-striped tabela-pedido">
-//             <thead>
-//                 <tr>
-//                     <th scope="col">#</th>
-//                     <th scope="col">Produto</th>
-//                     <th scope="col">Preço</th>
-//                     <th scope="col">Quantidade</th>
-//                 </tr>
-//             </thead>
+    const [itensPedido, setItensPedido] = useState([]);
 
-//             <tbody>
-//                 {carrinhos.map((produto) => <tr key={produto.id}> 
-//                     <td>{produto.nome}</td>
-//                     <td>{produto.preco}</td>
-//                 </tr>)}
+    useEffect(() => {
+        http.get(`produto/` + nome)
+            .then(resposta => {
+                setItensPedido(resposta.data)
+            }).catch(erro =>
+                console.log(erro))
+    }, [])
+console.log(itensPedido);
 
-//             </tbody>
-//         </table>
-//     </div>)
-// }
+    return (<div>
+        <h1 className="titulo-carrinho">Carrinho</h1>
+        <table className="table table-striped tabela-pedido">
+            <thead>
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Produto</th>
+                    <th scope="col">Preço</th>
+                    <th scope="col">Quantidade</th>
+                </tr>
+            </thead>
 
-// export default Carrinho;
+{/* 
+           {Object.entries(itensPedido).map((item) => <Tabela
+                key={item.id}
+                nome={item.nome}
+                preco={item.preco}
+            />)} */}
+
+            {itensPedido ? <Tabela  itensPedidos={itensPedido} /> : ''}
+
+
+
+
+        </table>
+    </div>)
+}
+
+export default Carrinho;

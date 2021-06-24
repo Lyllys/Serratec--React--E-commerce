@@ -3,9 +3,9 @@ import { useParams } from "react-router-dom";
 import http from '../../../http';
 import CardDetalhes from "../../../Componentes/CardDetalhes";
 
-const DetalhesProduto = () => {
+const DetalhesProduto = ({aoAdicionar}) => {
 
-    const {nome } = useParams();
+    const {nome} = useParams();
 
     const [produto, setProduto] = useState({});
 
@@ -19,7 +19,7 @@ const DetalhesProduto = () => {
 
     return (
         
-        <CardDetalhes nome={produto.nome} preco={produto.preco} descricao={produto.descricao} />
+        <CardDetalhes  nome={produto.nome} preco={produto.preco} descricao={produto.descricao} />
         
         // <div className="container" >
         //     <div className="row">
