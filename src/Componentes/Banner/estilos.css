@@ -4,13 +4,13 @@
     padding: 150px 0;
 }
 
-.container {
+.container-banner {
     margin: 0 auto; 
     max-width: 100%;
     padding: 0;
 }
 
-.img-fluid {
+.imagem-banner {
     height: 417px;
    
 }
@@ -18,7 +18,7 @@
 
 
 @media only screen and (max-width: 768px){
-    .img-fluid{
+    .imagem-banner{
        height: auto;
        margin-top: 15px;
     }

@@ -8,9 +8,6 @@ const Navbar = () => {
   <Link className="nav-link nav-link-menu" to="/produtos">Produtos</Link>
   </li>
   <li className="nav-item">
-  <Link className="nav-link nav-link-menu" to="/categorias">Categorias</Link>
-  </li>
-  <li className="nav-item">
   <Link className="nav-link nav-link-menu" aria-current="page" to="/login">Login</Link>
   </li>
   <li className="nav-item">

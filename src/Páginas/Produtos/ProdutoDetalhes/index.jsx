@@ -19,19 +19,8 @@ const DetalhesProduto = ({aoAdicionar}) => {
 
     return (
         
-        <CardDetalhes  nome={produto.nome} preco={produto.preco} descricao={produto.descricao} />
-        
-        // <div className="container" >
-        //     <div className="row">
-        //         <div className="col-12 col-lg-6 texto-banner mt-3">
-        //             <h1>{produto.nome}</h1>
-        //             <p>{produto.preco}</p>
-        //         </div>
-        //         <div className="col-12 col-lg-6 ">
-        //             {/* <img className="img-fluid" src={fotoBanner} alt="" /> */}
-        //         </div>
-        //     </div>
-        // </div>
+        <CardDetalhes aoAdicionar={aoAdicionar}  nome={produto.nome} preco={produto.preco} descricao={produto.descricao} codigo={produto.codigo} imagem={produto.url}/>
+
     )
 }
 

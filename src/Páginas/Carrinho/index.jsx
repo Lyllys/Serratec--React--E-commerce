@@ -1,66 +1,31 @@
-import { useState, useEffect } from 'react';
-import { useParams } from 'react-router-dom';
-import http from '../../http';
+
 import './estilos.css'
-import Tabela from '../../Componentes/Tabela/Tabela';
 
-const Carrinho = () => {
 
-    const { nome, quantidade } = useParams();
-
-    // const [itensPedido, setItensPedido] = useState([{
-    //     produto: {
-    //         id: 0,
-    //         nome: '',
-    //         descricao: '',
-    //         preco: 0,
-    //         categoria: {
-    //             codigo: '',
-    //             dataCadastro: '',
-    //             descricao: '',
-    //             id: 0,
-    //             imagemBase64: null,
-    //             nome: '',
-    //             preco: 0,
-    //             quantidadeEstoque: 0
-    //         }
-    //     }
-    // }]);
-
-    const [itensPedido, setItensPedido] = useState([]);
-
-    useEffect(() => {
-        http.get(`produto/` + nome)
-            .then(resposta => {
-                setItensPedido(resposta.data)
-            }).catch(erro =>
-                console.log(erro))
-    }, [])
-console.log(itensPedido);
+const Carrinho = ({ produtos }) => {
+ 
 
     return (<div>
         <h1 className="titulo-carrinho">Carrinho</h1>
         <table className="table table-striped tabela-pedido">
+           
             <thead>
                 <tr>
-                    <th scope="col">#</th>
+                    <th scope="col">Código</th>
                     <th scope="col">Produto</th>
-                    <th scope="col">Preço</th>
+                    <th scope="col">Preço Unitário</th>
                     <th scope="col">Quantidade</th>
+                    <th scope="col">Valor total</th>
                 </tr>
             </thead>
 
-{/* 
-           {Object.entries(itensPedido).map((item) => <Tabela
-                key={item.id}
-                nome={item.nome}
-                preco={item.preco}
-            />)} */}
-
-            {itensPedido ? <Tabela  itensPedidos={itensPedido} /> : ''}
-
-
-
+            <tbody>{produtos.map((item) => <tr key={item.id}>
+                <td>{item.codigo}</td>
+                <td>{item.nome}</td>
+                <td>R${item.preco}</td>
+                <td>{item.quantidade}</td>
+                <td>R${(item.quantidade * item.preco).toFixed(2)}</td>
+            </tr>)}</tbody>
 
         </table>
     </div>)

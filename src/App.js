@@ -10,9 +10,8 @@ import Login from './Páginas/Login';
 import ProdutoDetalhes from './Páginas/Produtos/ProdutoDetalhes';
 import Rodape from './Componentes/Rodape/';
 import Carrinho from './Páginas/Carrinho';
-import http from './http';
+import Pagina404 from './Páginas/Pagina404/Pagina404';
 import { useState } from 'react';
-
 
 function App() {
 
@@ -20,10 +19,10 @@ function App() {
 
   const adicionarProduto = (produtoAdiciona) => {
    console.log(produtoAdiciona);
-    // setCarrinho([
-    //   carrinho,
-    //   ...produtoAdiciona
-    // ]) 
+   setCarrinho([
+       ...carrinho,
+      produtoAdiciona
+     ]) 
   }
 
 return (
@@ -40,17 +39,17 @@ return (
       <Route path="/produto/:nome">
         <ProdutoDetalhes aoAdicionar={adicionarProduto} />
       </Route>
-      {/* <Route exact path="/categorias">
-        <Servicos />
-      </Route> */}
-      <Route path="/carrinho/:nome/:quantidade">
-        <Carrinho />
+      <Route path="/carrinho">
+        <Carrinho produtos={carrinho} />
       </Route>  
       <Route path="/cadastro">
         <Cadastro />
       </Route>
       <Route path="/login">
         <Login />
+      </Route>
+      <Route>
+        <Pagina404 />
       </Route>
     </Switch>
     <Rodape />
