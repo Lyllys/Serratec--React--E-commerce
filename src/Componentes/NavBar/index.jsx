@@ -16,6 +16,7 @@ const Navbar = () => {
   <li className="nav-item">
   <Link className="nav-link nav-link-menu" aria-current="page" to="/carrinho"><img src={carrinho} alt="carrinho de compras" /></Link>
   </li>
+  
  
 </ul>
  

@@ -8,3 +8,11 @@
     margin: auto;
 }
 
+.container-finalizar {
+   margin-top: 50px;
+    text-align: center;
+}
+
+.botao-finalizar-carrinho{
+    margin-bottom: 30px;
+}

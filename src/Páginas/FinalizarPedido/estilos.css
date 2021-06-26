@@ -1,0 +1,13 @@
+.container-pedido-finalizar{
+    width: 30%;
+    margin: auto;
+}
+
+.finalizar-pedido{
+    text-align: center;
+}
+
+.titulo-finalizar-pedido {
+    text-align: center;
+    margin-bottom: 20px;
+}

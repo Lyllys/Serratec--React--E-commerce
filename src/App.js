@@ -11,6 +11,7 @@ import ProdutoDetalhes from './Páginas/Produtos/ProdutoDetalhes';
 import Rodape from './Componentes/Rodape/';
 import Carrinho from './Páginas/Carrinho';
 import Pagina404 from './Páginas/Pagina404/Pagina404';
+import FinalizarPedido from './Páginas/FinalizarPedido/FinalizarPedido';
 import { useState } from 'react';
 
 function App() {
@@ -23,6 +24,11 @@ function App() {
        ...carrinho,
       produtoAdiciona
      ]) 
+  }
+
+  const [token, setToken] = useState('')
+  const onLogin = (token) => {
+    setToken(token)
   }
 
 return (
@@ -42,11 +48,14 @@ return (
       <Route path="/carrinho">
         <Carrinho produtos={carrinho} />
       </Route>  
+      <Route>
+        <FinalizarPedido path="/finalizar/:numeroPedido"/>
+      </Route>
       <Route path="/cadastro">
         <Cadastro />
       </Route>
       <Route path="/login">
-        <Login />
+        <Login onLogin={onLogin}/>
       </Route>
       <Route>
         <Pagina404 />

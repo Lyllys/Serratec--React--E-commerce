@@ -1,7 +1,7 @@
 import { useState } from 'react';
-import http from '../../http';
 import './estilos.css'
-const Login = () => {
+import axios from 'axios';
+const Login = ({onLogin}) => {
    
    const [email, setEmail] = useState('');
    const [senha, setSenha] = useState('');
@@ -13,13 +13,16 @@ const Login = () => {
             pass: senha
         }
 
-        http.post('auth' , usuario)
+        axios.post(`http://localhost:8080/auth`, usuario)
         .then ((resposta) => {
             console.log(resposta.data);
-            localStorage.setItem('token' , resposta.data.access_token)
+            localStorage.setItem('token', resposta.data.token)
+            localStorage.setItem('user', email)
+            onLogin(resposta.data.token)
             setEmail('')
             setSenha('')
         }).catch((erro => console.log(erro)))
+   
    }
 
     return (
