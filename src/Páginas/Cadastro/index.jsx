@@ -108,11 +108,11 @@ const Cadastro = () => {
       </div>
       <div className="col-md-4">
         <label className="form-label">Data de Nascimento</label>
-        <input required value={dataNascimento} onChange={(evento) => setDataNascimento(evento.target.value)} type="text" className="form-control" />
+        <input required placeholder="2000-12-31" value={dataNascimento} onChange={(evento) => setDataNascimento(evento.target.value)} type="text" className="form-control" />
       </div>
       <div className="col-md-4">
         <label className="form-label">Telefone</label>
-        <input required value={telefone} onChange={(evento) => setTelefone(evento.target.value)} type="text" className="form-control" />
+        <input required value={telefone} onChange={(evento) => setTelefone(evento.target.value)} type="text" className="form-control"  />
       </div>
       <div className="col-12">
         <label className="form-label">Email</label>

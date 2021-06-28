@@ -7,7 +7,7 @@ import { useHistory } from 'react-router';
 
 const Carrinho = ({ produtos }) => {
 
-    const history = useHistory();
+     const history = useHistory();
 
 
     const finalizarCarrinho = () => {
@@ -30,7 +30,7 @@ const Carrinho = ({ produtos }) => {
         http.post('pedido', pedido)
             .then(resposta => {
                 console.log(resposta.data)
-                history.push('/finalizar/' + resposta.data.numeroPedido)
+                 history.push('/finalizar/' + resposta.data.numeroPedido)
             })
     }
 
